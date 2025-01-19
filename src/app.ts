@@ -8,7 +8,6 @@ const app = express();
 
 app.use(express.json());
 
-// Ruta base
 app.get('/', (req: Request, res: Response) => {
     res.json({
       message: '¡Bienvenido a la API de gestión de usuarios!',
@@ -21,11 +20,9 @@ app.get('/', (req: Request, res: Response) => {
       },
     });
   });
-  
-// Rutas de usuarios
+
 app.use('/api', userRoutes);
 
-// Middleware para manejar errores
 app.use((err: Error, req: Request, res: Response, next: Function) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Error interno del servidor', error: err.message });

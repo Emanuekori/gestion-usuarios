@@ -4,7 +4,6 @@ const seedDatabase = async () => {
   try {
     console.log('Iniciando población de datos...');
 
-    // Datos para insertar
     const seedData = [
       ['12345678-9', 'Juan Pérez', 'juan.perez@example.com'],
       ['98765432-1', 'María González', 'maria.gonzalez@example.com'],
@@ -14,7 +13,6 @@ const seedDatabase = async () => {
       ['20103391-8', 'Emanuel Fernández', 'emanuel.fernandez@example.com'],
     ];
 
-    // Inserción de datos
     for (const [rut, name, email] of seedData) {
       await pool.query(
         'INSERT IGNORE INTO users (rut, name, email, createdAt) VALUES (?, ?, ?, NOW())',
